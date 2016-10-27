@@ -1,9 +1,8 @@
 angular.module('starter.controllers')
 .controller('QuestionsCtrl',['$scope', '$stateParams', 'testInfo', 'TKAnswersService', '$state', '$ionicHistory',
 function($scope, $stateParams, testInfo, TKAnswersService, $state, $ionicHistory) {
-}]);
-
-$scope.qNumber = $stateParams.questionID;
+    
+$scope.Number = $stateParams.questionID;
 
 testInfo.forEach(function(infoDict) {
      if(infoDict.Answer_ID === "A")
@@ -41,4 +40,6 @@ $scope.goBack = function() {
     });
     $state.go('lobby');
 }
+}]);
+
 
