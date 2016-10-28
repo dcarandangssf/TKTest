@@ -4,19 +4,19 @@
       </button>
     </ion-nav-buttons>
     <ion-content class="padding">
-        <div class="card" ng-click="buttonClicked('A')">
+        <div class="card" ng-class="ptorQuestionGoA" ng-click="buttonClicked('A')">
           <div class="item item-divider">
             Option A
           </div>
-          <div class="item item-text-wrap">
+          <div class="item item-text-wrap" ng-class="ptorQuestionTextA">
             {{questionA.Text}}
           </div>
         </div>  
-        <div class="card" ng-click="buttonClicked('B')">
+        <div class="card" ng-class="ptorQuestionGoB" ng-click="buttonClicked('B')">
           <div class="item item-divider">
             Option B
           </div>
-          <div class="item item-text-wrap">
+          <div class="item item-text-wrap" ng-class="ptorQuestionTextB">
             {{questionB.Text}}
           </div>
         </div>

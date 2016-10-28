@@ -28,6 +28,7 @@ angular.module('starter', ['ionic', 'TKTestQuestions', 'starter.controllers', 'T
   .state('lobby', {
     url: '/',
     templateUrl: 'templates/lobby.html',
+    controller: 'LobbyCtrl'
   })
   .state('question', {
     url: '/question:questionID',
