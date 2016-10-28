@@ -17,6 +17,8 @@
     </script>-->
 
     <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <!--<link href="lib/angular-chart.js/dist/angular-chart.css" rel="stylesheet">-->
+    <link rel="stylesheet" href="lib/Chart/css/angular-chart.css" />
     <link href="css/style.css" rel="stylesheet">
 
     <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
@@ -29,12 +31,23 @@
     <!-- cordova script (this will be a 404 during development) -->
     <script src="cordova.js"></script>
 
+    <!--Chart.js-->
+    <script src="lib/Chart/js/Chart.js"></script>
+    <script src="lib/Chart/js/angular-chart.js"></script>
+    <!--<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>-->
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.1.1/Chart.min.js"></script>-->
+    <!--<script src="https://raw.githubusercontent.com/jtblin/angular-chart.js/master/angular-chart.js"></script>-->
+
+
     <!-- your app's js -->
     <script src="js/controllers/starterControllers.js"></script>
     <script src="js/controllers/LobbyCtrl.js"></script>
     <script src="js/controllers/questionsCtrl.js"></script>
+    <script src="js/controllers/resultsCtrl.js"></script>
+    <script src="js/controllers/historyCtrl.js"></script>
     <script src="js/services/questionsService.js"></script>
     <script src="js/services/TKTestAnswersServ.js"></script>
+    <script src="js/services/TKResultsButtonService.js"></script>
     <script src="js/app.js"></script>
   </head>
   <body ng-app="starter">

@@ -1,12 +1,14 @@
+/*global angular*/
+
 angular.module('starter.controllers')
-    .controller('QuestionsCtrl', ['$scope', '$stateParams', 'testInfo', 'TKAnswersService', '$state', '$ionicHistory',
-        function($scope, $stateParams, testInfo, TKAnswersService, $state, $ionicHistory) {
-            
+    .controller('QuestionsCtrl', ['$scope', '$stateParams', 'testInfo', 'TKAnswersService', '$state', '$ionicHistory', 'TKResultsButtonService',
+        function($scope, $stateParams, testInfo, TKAnswersService, $state, $ionicHistory, TKResultsButtonService) {
+
             $scope.ptorQuestionGoA = 'ptor-question-go-a' + $stateParams.questionID;
             $scope.ptorQuestionGoB = 'ptor-question-go-b' + $stateParams.questionID;
             $scope.ptorQuestionTextA = 'ptor-question-text-a' + $stateParams.questionID;
             $scope.ptorQuestionTextB = 'ptor-question-text-b' + $stateParams.questionID;
-            
+
             $scope.qNumber = $stateParams.questionID;
 
             testInfo.forEach(function(infoDict) {
@@ -42,11 +44,12 @@ angular.module('starter.controllers')
                 var date = new Date();
                 answersDict["createDate"] = date.toUTCString();
                 TKAnswersService.saveTest(answersDict);
+                TKResultsButtonService.setShouldShowMenuButton(true);
                 $ionicHistory.nextViewOptions({
                     historyRoot: true
                 });
-                $state.go('lobby');
-            };
+                $state.go('results');
+            }
 
         }
     ]);
