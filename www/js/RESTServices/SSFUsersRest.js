@@ -16,5 +16,14 @@ angular.module("RESTServices", [])
                     data: currentUserData
                 });
             };
+            SSFUsersRest.logout = function(token) {
+                return $http({
+                    url: "https://strongloop-backend-dcarandangssf.c9users.io:8080/api/SSFUsers/logout",
+                    method: "POST",
+                    headers: {
+                        Authorization: token
+                    },
+                });
+            };
         }
     ]);
