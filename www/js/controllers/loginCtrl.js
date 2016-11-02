@@ -6,7 +6,7 @@ angular.module('starter.controllers')
                 if (form.$invalid) return alert("Please complete the form before proceeding.");
                 SSFUsersRest.login($scope.user)
                     .then(function(response) {
-                        $window.localStorage.userId = response.data.userId;
+                        $window.localStorage.userID = response.data.userId;
                         $window.localStorage.token = response.data.id;
                         if (response.data === null) {
                             return alert("user is offline");

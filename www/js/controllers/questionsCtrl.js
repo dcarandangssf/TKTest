@@ -1,8 +1,8 @@
 /*global angular*/
 
 angular.module('starter.controllers')
-    .controller('QuestionsCtrl', ['$scope', '$stateParams', 'testInfo', 'TKAnswersService', '$state', '$ionicHistory', 'TKResultsButtonService',
-        function($scope, $stateParams, testInfo, TKAnswersService, $state, $ionicHistory, TKResultsButtonService) {
+    .controller('QuestionsCtrl', ['$scope', '$stateParams', 'testInfo', 'TKAnswersService', '$state', '$ionicHistory', 'TKResultsButtonService', '$window',
+        function($scope, $stateParams, testInfo, TKAnswersService, $state, $ionicHistory, TKResultsButtonService, $window) {
 
             $scope.ptorQuestionGoA = 'ptor-question-go-a' + $stateParams.questionID;
             $scope.ptorQuestionGoB = 'ptor-question-go-b' + $stateParams.questionID;
@@ -43,7 +43,8 @@ angular.module('starter.controllers')
                 var answersDict = angular.copy(TKAnswersService.getAnswers());
                 var date = new Date();
                 answersDict["createDate"] = date.toUTCString();
-                TKAnswersService.saveTest(answersDict);
+                answersDict["userID"] = $window.localStorage.userID;
+                TKAnswersService.saveTest(answersDict, $window.localStorage.token);
                 TKResultsButtonService.setShouldShowMenuButton(true);
                 $ionicHistory.nextViewOptions({
                     historyRoot: true

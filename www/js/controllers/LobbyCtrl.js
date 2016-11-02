@@ -14,10 +14,15 @@ angular.module('starter.controllers')
                 SSFUsersRest.logout($window.localStorage.token)
                     .then(function(response) {
                         // handle different responses and decide what happens next
-                        $state.go('landing');
+                        if(response.status === 204) {
+                            $state.go('landing');
+                        }
                     }, function(error) {
                         // inform the user of any known problems that arose, otherwise give a generic 
                         // failed message
+                        if(error.status === 500) {
+                            return alert("uh oh... you're stuck here");
+                        }
                     });
             };
         }
