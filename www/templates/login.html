@@ -1,11 +1,20 @@
-<ion-view view-title="login">
+<ion-view view-title="Login">
     <ion-content class="padding">
+        
         <form name="loginForm" ng-submit="login(loginForm)" autocomplete="off" novalidate>
-            <label class="item item-input" ng-class="{ 'has-errors' : loginForm.email.$invalid && loginForm.$submitted}">
+            
+            <label class="item item-input item-floating-label" ng-class="{ 'has-errors' : loginForm.email.$invalid && loginForm.$submitted}">
+                <span class="input-label">Email</span>
                 <input name="email" type="text" placeholder="Email" ng-model="user.email" required><br>
-                <input name="password" type="text" placeholder="Password" ng-model="user.password" required><br>
-                <button name="submit" type="submit">Submit</button>
             </label>
+            
+            <label class="item item-input item-floating-label" ng-class="{ 'has-errors' : loginForm.email.$invalid && loginForm.$submitted}">
+                <span class="input-label">Password</span>
+                <input name="password" type="text" placeholder="Password" ng-model="user.password" required><br>
+            </label>
+            
+            <button class="button button-block button-positive" name="submit" type="submit">Submit</button>
         </form>
+        
     </ion-content>
 </ion-view>
