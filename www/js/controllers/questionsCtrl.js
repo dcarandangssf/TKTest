@@ -43,7 +43,7 @@ angular.module('starter.controllers')
                 var answersDict = angular.copy(TKAnswersService.getAnswers());
                 var date = new Date();
                 answersDict["createDate"] = date.toUTCString();
-                answersDict["userID"] = $window.localStorage.userID;
+                answersDict["userId"] = $window.localStorage.userId;
                 TKAnswersService.saveTest(answersDict, $window.localStorage.token);
                 TKResultsButtonService.setShouldShowMenuButton(true);
                 $ionicHistory.nextViewOptions({

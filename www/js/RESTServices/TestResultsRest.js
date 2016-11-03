@@ -17,7 +17,7 @@ angular.module("RESTServices")
                     headers: {
                         Authorization: token
                     },
-                    url: "https://strongloop-backend-dcarandangssf.c9users.io:8080/api/TestResults?filter[where][userID]="+$window.localStorage.userID,
+                    url: "https://strongloop-backend-dcarandangssf.c9users.io:8080/api/TestResults?filter[where][userId]="+$window.localStorage.userId,
                     method: 'GET'
                 });
             };

@@ -1,8 +1,8 @@
 /*global angular*/
 
 angular.module('starter.controllers')
-    .controller('LobbyCtrl', ['$scope', 'TKTestQuestionService', '$state', 'TKAnswersService', 'SSFUsersRest', '$window',
-        function($scope, TKTestQuestionService, $state, TKAnswersService, SSFUsersRest, $window) {
+    .controller('LobbyCtrl', ['$scope', 'TKTestQuestionService', '$state', 'TKAnswersService', 'SSFUsersRest', '$window', '$ionicHistory',
+        function($scope, TKTestQuestionService, $state, TKAnswersService, SSFUsersRest, $window, $ionicHistory) {
             TKTestQuestionService.all();
             $scope.goToTest = function() {
                 TKAnswersService.resetAnswers();
@@ -15,6 +15,10 @@ angular.module('starter.controllers')
                     .then(function(response) {
                         // handle different responses and decide what happens next
                         if(response.status === 204) {
+                            $window.localStorage.clear();
+                            $ionicHistory.nextViewOptions({
+                                historyRoot: true
+                            });
                             $state.go('landing');
                         }
                     }, function(error) {

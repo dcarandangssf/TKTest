@@ -1,6 +1,6 @@
 angular.module('starter.controllers')
-    .controller('RegisterCtrl', ['$scope', 'SSFUsersRest', '$http', '$state', '$window',
-        function($scope, SSFUsersRest, $http, $state, $window) {
+    .controller('RegisterCtrl', ['$scope', 'SSFUsersRest', '$http', '$state', '$window', '$ionicHistory',
+        function($scope, SSFUsersRest, $http, $state, $window, $ionicHistory) {
             $scope.user = {};
             $scope.signupForm = function(form) {
                 if (form.$invalid) return alert("Please complete the form before proceeding.");
@@ -14,6 +14,9 @@ angular.module('starter.controllers')
                             return alert("user is offline");
                         }
                         else if (response.status === 200) {
+                            $ionicHistory.nextViewOptions({
+                                historyRoot: true
+                            });
                             $state.go('lobby');
                         }
                     }, function(error) {
